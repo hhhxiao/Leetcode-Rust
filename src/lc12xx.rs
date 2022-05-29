@@ -58,3 +58,23 @@ pub fn max_sum_div_three(nums: Vec<i32>) -> i32 {
     }
     sum - sub
 }
+
+pub fn check_straight_line(coordinates: Vec<Vec<i32>>) -> bool {
+    /**
+    (x1,y1) (x2,y2) (x3,y3)
+    (y2 - y1)/(x2 - x1) == (y3 - y2)/(x3 - x2)
+    (y2 - y1)(x3 - x2) == (y3 - y2)(x2 - x1)
+     */
+    for i in 0..coordinates.len() - 2 {
+        let v1 = &coordinates[i];
+        let v2 = &coordinates[i + 1];
+        let v3 = &coordinates[i + 2];
+        let left = (v2[1] - v1[1]) * (v3[0] - v2[0]);
+        let right = (v3[1] - v2[1]) * (v2[0] - v1[0]);
+        if left != right {
+            return false
+        }
+    }
+
+    true
+}

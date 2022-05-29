@@ -1,6 +1,6 @@
-mod lc20xx;
+mod lc15xx;
 
 fn main() {
-    let s = vec![String::from("--X"), String::from("++X")];
-    lc20xx::final_value_after_operations(s);
-}
+    let str = String::from("100100010100110");
+   println!("{}",lc15xx::num_ways(str));
+   }
